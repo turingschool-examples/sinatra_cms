@@ -1,0 +1,22 @@
+<h1>An error occured</h1>
+
+<h3>Params</h3>
+<table>
+  <tr>
+    <th>Request Verb</th>
+    <td><%= request.request_method %></td>
+  </tr>
+  <tr>
+    <th>Request Path</th>
+    <th><%= request.path %></td>
+  </tr>
+  <tr>
+    <th colspan=2>Parameters</th>
+  </tr>
+  <% request.params.each do |key, value| %>
+    <tr>
+      <th><%= key %></th>
+      <th><%= value %></th>
+    </tr>
+  <% end %>
+</table>
