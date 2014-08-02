@@ -1,4 +1,5 @@
 require 'sinatra'
+require './lib/app/models/page'
 
 class CMS < Sinatra::Base
 
