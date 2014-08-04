@@ -1,7 +1,7 @@
 require 'sequel'
 require 'sqlite3'
 
-Database = Sequel.sqlite('db/test.sqlite3')
+Database = Sequel.sqlite("db/#{ENV['RACK_ENV']}.sqlite3")
 
 class Page
   def self.create(data)
@@ -15,6 +15,10 @@ class Page
 
   def self.table
     Database.from(:pages)
+  end
+
+  def self.all
+    table.select.map{|p| Page.new(p)}
   end
 
   attr_reader :slug, :content

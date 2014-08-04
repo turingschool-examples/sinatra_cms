@@ -18,6 +18,8 @@ GEM
       rack (>= 1.0)
     rake (10.1.1)
     sequel (4.13.0)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -43,6 +45,7 @@ DEPENDENCIES
   rack-test
   rake
   sequel
+  shotgun
   sinatra
   sinatra-contrib
   sqlite3

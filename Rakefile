@@ -10,3 +10,13 @@ task :setup do
   setup = SetupDatabase.new
   setup.go
 end
+
+task :console do
+  ENV['RACK_ENV'] = 'development'
+  require './lib/app'
+  binding.pry
+end
+
+task :server do
+  `RACK_ENV=development shotgun`
+end

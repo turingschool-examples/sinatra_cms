@@ -1,6 +1,6 @@
 class SetupDatabase
   def filename
-    'db/test.sqlite3'
+    "db/#{ENV['RACK_ENV']}.sqlite3"
   end
 
   def db
@@ -16,6 +16,6 @@ class SetupDatabase
   end
 
   def teardown
-    system("rm db/test.sqlite3")
+    system("rm #{filename}")
   end
 end
