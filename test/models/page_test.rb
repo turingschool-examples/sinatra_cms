@@ -1,13 +1,6 @@
-gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/app/models/page'
+require './test/test_helper'
 
 class PageTest < Minitest::Test
-  def teardown
-    system("rm db/test.sqlite3")
-  end
-
   def test_it_stores_a_page
     page_data = {:slug    => "about-us",
                  :content => "Our site is great!"}

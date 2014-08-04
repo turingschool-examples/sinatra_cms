@@ -14,7 +14,8 @@ class CMS < Sinatra::Base
     erb :error
   end
 
-  get '/pages/:id' do |id|
-    "Here's the page with ID #{id}"
+  get '/pages/:slug' do |slug|
+    page = Page.find_by_slug(slug)
+    erb :page, :locals => {:page => page}
   end
 end

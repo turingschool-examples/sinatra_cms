@@ -5,8 +5,26 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
+require 'bundler'
+Bundler.require
 
-class CMSTest < MiniTest::Test
+module CleanTheDatabase
+  DatabaseCleaner.strategy = :truncation
+
+  def setup
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+end
+
+class Minitest::Test
+  include CleanTheDatabase
+end
+
+class FeatureTest < MiniTest::Test
   include Rack::Test::Methods
 
   def app
@@ -26,17 +44,4 @@ class CMSTest < MiniTest::Test
             last_response.body.inspect].join("\n")
   end
 
-  def test_it_shows_a_page
-    get '/pages/1'
-    assert_ok
-  end
-
-  def test_it_shows_a_page_by_slug
-    page_data = {:slug => "location",
-                 :content => "We're located in Denver, CO!"}
-
-    Page.create( page_data )
-    get "/pages/#{page_data[:slug]}"
-    assert_page_has page_data[:content]
-  end
 end
