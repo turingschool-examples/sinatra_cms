@@ -6,6 +6,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
 require 'bundler'
+require 'capybara'
 Bundler.require
 
 module CleanTheDatabase
