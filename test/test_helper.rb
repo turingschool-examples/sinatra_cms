@@ -9,7 +9,7 @@ require 'bundler'
 Bundler.require
 
 module CleanTheDatabase
-  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.strategy=(:truncation)
 
   def setup
     DatabaseCleaner.start
@@ -26,6 +26,7 @@ end
 
 class FeatureTest < MiniTest::Test
   include Rack::Test::Methods
+  include Capybara::DSL
 
   def app
     CMS

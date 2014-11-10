@@ -9,7 +9,7 @@ class PageIndexTest < FeatureTest
                    :content => "Call us at 111-222-3333"}
 
     # Create the two pages in the database
-    # Fetch the `/pages` page
+    # Load the `/pages` page
     # Check that the `content` of each page is in the index
   end
 end
