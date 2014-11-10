@@ -33,6 +33,8 @@ class FeatureTest < MiniTest::Test
     CMS
   end
 
+  Capybara.app = app
+
   def assert_ok
     assert last_response.ok?,
            "Expected OK from this responses:\n#{last_response.inspect}"
