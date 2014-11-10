@@ -8,10 +8,8 @@ class PageIndexTest < FeatureTest
     page_data_2 = {:slug => "contact",
                    :content => "Call us at 111-222-3333"}
 
-    Page.create( page_data_1 )
-    Page.create( page_data_2 )
-    get "/pages/"
-    assert_page_has page_data_1[:content]
-    assert_page_has page_data_2[:content]
+    # Create the two pages in the database
+    # Fetch the `/pages` page
+    # Check that the `content` of each page is in the index
   end
 end
