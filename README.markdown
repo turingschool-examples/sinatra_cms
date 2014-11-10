@@ -2,6 +2,15 @@
 
 A simplistic CMS using Sinatra and Sequel.
 
+### Setting up the Database
+
+You can setup the database using two rake commands:
+
+```
+$ RACK_ENV=development rake setup
+$ RACK_ENV=test rake setup
+```
+
 ### Running the Tests
 
 The repo likely has a `db/test.sqlite3` database already. But, if not,
