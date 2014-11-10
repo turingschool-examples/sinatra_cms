@@ -33,7 +33,7 @@ class FeatureTest < MiniTest::Test
     CMS
   end
 
-  Capybara.app = app
+  Capybara.app = CMS
 
   def assert_ok
     assert last_response.ok?,
